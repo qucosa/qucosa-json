@@ -37,7 +37,7 @@
       "$id": "#/properties/de.qucosa.event.expires",
       "type": "integer",
       "examples": [
-        "1524580811763"
+        1524580811763
       ]
     }
   }

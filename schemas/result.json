@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.qucosa.de/api/schemas/result.json",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "de.qucosa.event.version",
+    "de.qucosa.event.sourceID",
+    "de.qucosa.proc.sourceID"
+  ],
+  "properties": {
+    "de.qucosa.event.version": {
+      "$id": "#/properties/de.qucosa.event.version",
+      "type": "string",
+      "pattern": "^[\\d]+(\\.[\\d]+)*$",
+      "examples": [
+        "1.0"
+      ]
+    },
+    "de.qucosa.event.sourceID": {
+      "$id": "#/properties/de.qucosa.event.sourceID",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "urn:fcrepo3:sdvcmr-app03"
+      ]
+    },
+    "de.qucosa.proc.sourceID": {
+      "$id": "#/properties/de.qucosa.proc.sourceID",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "urn:camel:disseminate-mets:sdvcmr-camel02"
+      ]
+    },
+    "de.qucosa.proc.metric.time": {
+      "$id": "#/properties/de.qucosa.proc.metric.time",
+      "type": "integer",
+      "minimum": 0,
+      "examples": [
+        200
+      ]
+    },
+    "de.qucosa.proc.metric.cycleTime": {
+      "$id": "#/properties/de.qucosa.proc.metric.cycleTime",
+      "type": "integer",
+      "minimum": 0,
+      "examples": [
+        5000
+      ]
+    },
+    "de.qucosa.proc.actions": {
+      "$id": "#/properties/de.qucosa.proc.actions",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "examples": [
+        [
+          "Load XML from http://foo.bar/xml/1",
+          "Schema validation successful",
+          "Enrich MODS elements"
+        ]
+      ]
+    },
+    "de.qucosa.proc.uri": {
+      "$id": "#/properties/de.qucosa.proc.uri",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "http://foo.bar/xml/2"
+      ]
+    },
+    "de.qucosa.proc.content": {
+      "$id": "#/properties/de.qucosa.proc.content",
+      "type": "string",
+      "examples": [
+        "TG9yZW0gaXBzdW0=",
+        "Just some text"
+      ]
+    },
+    "de.qucosa.proc.contentEncoding": {
+      "$id": "#/properties/de.qucosa.proc.contentEncoding",
+      "type": "string",
+      "default": "text",
+      "enum": [
+        "base64",
+        "text"
+      ]
+    },
+    "de.qucosa.proc.contentType": {
+      "$id": "#/properties/de.qucosa.proc.contentType",
+      "type": "string",
+      "pattern": "^[-\\w.]+/[-\\w.]+(\\+[\\w.]+)?$",
+      "examples": [
+        "text/plain",
+        "application/vnd.qucosa.mets+xml",
+        "video/x-sgi-movie"
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "de.qucosa.proc.uri"
+      ]
+    },
+    {
+      "oneOf": [
+        {
+          "properties": {
+            "de.qucosa.proc.contentEncoding": {
+              "const": "base64"
+            },
+            "de.qucosa.proc.content": {
+              "contentEncoding": "base64"
+            }
+          }
+        },
+        {
+          "properties": {
+            "de.qucosa.proc.contentEncoding": {
+              "const": "text"
+            }
+          }
+        }
+
+      ],
+      "required": [
+        "de.qucosa.proc.content",
+        "de.qucosa.proc.contentEncoding",
+        "de.qucosa.proc.contentType"
+      ]
+    }
+  ]
+}
