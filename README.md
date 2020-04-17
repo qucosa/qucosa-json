@@ -7,9 +7,22 @@ Defines JSON Schema for all JSON based message formats.
 
 Message variants can be tested against the JSON schemas. For schema validation the `jsonschema` command is used. To run all the tests use the `bats` commmand.
 
-To execute all tests run `bats` and pass the test directory as parameter. The output should read like this:
+To execute all tests run `./run-tests.sh`. The output should read like this:
 ```
-$ bats tests
+$ ./run-tests.sh 
+Using Bats 0.4.0
+Jsonschema is present
+Testing...
+ ✓ Validate minimal example
+ ✓ Validate full example
+ ✓ Fails if sourceID is missing
+
+3 tests, 0 failures
+```
+
+To execute individual tests run `bats` and pass the files you want to run as parameter. E.g:
+```
+$ bats tests/event.bats
  ✓ Validate minimal example
  ✓ Validate full example
  ✓ Fails if sourceID is missing
