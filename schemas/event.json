@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.qucosa.de/api/schemas/event.json",
+  "type": "object",
+  "default": {},
+  "additionalProperties": true,
+  "required": [
+    "de.qucosa.event.version",
+    "de.qucosa.event.sourceID"
+  ],
+  "properties": {
+    "de.qucosa.event.version": {
+      "$id": "#/properties/de.qucosa.event.version",
+      "type": "string",
+      "pattern": "^[\\d]+(\\.[\\d]+)*$",
+      "examples": [
+        "1.0"
+      ]
+    },
+    "de.qucosa.event.sourceID": {
+      "$id": "#/properties/de.qucosa.event.sourceID",
+      "type": "string",
+      "format": "uri",
+      "examples": [
+        "urn:fcrepo3:sdvcmr-app03"
+      ]
+    },
+    "de.qucosa.event.transactionID": {
+      "$id": "#/properties/de.qucosa.event.transactionID",
+      "type": "string",
+      "pattern": "([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}",
+      "examples": [
+        "f5561cb7-f0f8-43e5-9a5f-9d8f5055b458"
+      ]
+    },
+    "de.qucosa.event.expires": {
+      "$id": "#/properties/de.qucosa.event.expires",
+      "type": "integer",
+      "examples": [
+        "1524580811763"
+      ]
+    }
+  }
+}
