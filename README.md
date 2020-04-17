@@ -1,3 +1,5 @@
+![Test](https://github.com/qucosa/qucosa-json/workflows/Test/badge.svg)
+
 # qucosa-json
 Documentation and specification of JSON messages used in the Qucosa repository system.
 
