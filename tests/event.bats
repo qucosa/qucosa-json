@@ -3,6 +3,10 @@
 validator="jsonschema"
 schema="$BATS_TEST_DIRNAME/../schemas/event.json"
 
+teardown() {
+  rm -f $BATS_TMPDIR/test_*.json
+}
+
 @test "Validate minimal example" {
 
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
