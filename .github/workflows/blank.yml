@@ -13,8 +13,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install tooling
-      run: sudo apt-get install jsonschema bats
+    - name: Install Bash test tooling
+      run: sudo apt-get install bats
+
+    - name: Install jsonschema tooling
+      run: pip install jsonschema
 
     - name: Run tests
       run: run-tests.sh
