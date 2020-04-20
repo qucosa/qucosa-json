@@ -1,5 +1,6 @@
 #!/usr/bin/bats
 
+prefix="[Events]"
 schema="$BATS_TEST_DIRNAME/../schemas/event.json"
 validator="justify -s $schema"
 
@@ -8,7 +9,7 @@ teardown() {
   rm -f $BATS_TMPDIR/test_*.json
 }
 
-@test "Validate minimal example" {
+@test "$prefix Validate minimal example" {
 
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
@@ -21,7 +22,7 @@ teardown() {
 
 }
 
-@test "Validate full example" {
+@test "$prefix Validate full example" {
 
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
@@ -36,7 +37,7 @@ teardown() {
 
 }
 
-@test "Fails if sourceID is missing" {
+@test "$prefix Fails if sourceID is missing" {
 
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{

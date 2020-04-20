@@ -1,5 +1,6 @@
 #!/usr/bin/bats
 
+prefix="[Results]"
 schema="$BATS_TEST_DIRNAME/../schemas/result.json"
 validator="justify -s $schema"
 
@@ -7,7 +8,7 @@ teardown() {
   rm -f $BATS_TMPDIR/test_*.json
 }
 
-@test "Fails on empty document" {
+@test "$prefix Fails on empty document" {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{}' > $tmp
 
@@ -15,7 +16,7 @@ teardown() {
   [[ $status != 0 ]]
 }
 
-@test "Validates minimal message with only proc.uri" {
+@test "$prefix Validates minimal message with only proc.uri" {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
@@ -28,7 +29,7 @@ teardown() {
   [[ $status = 0 ]]
 }
 
-@test "Validates minimal message with encoded content" {
+@test "$prefix Validates minimal message with encoded content" {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
@@ -43,7 +44,7 @@ teardown() {
   [[ $status = 0 ]]
 }
 
-@test "Failes if content encoding is not specified" {
+@test "$prefix Failes if content encoding is not specified" {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
@@ -57,7 +58,7 @@ teardown() {
   [[ $status != 0 ]]
 }
 
-@test "Failes if content type is not specified" {
+@test "$prefix Failes if content type is not specified" {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
@@ -71,7 +72,7 @@ teardown() {
   [[ $status != 0 ]]
 }
 
-@test "Failes if encoded content is not base64" {
+@test "$prefix Failes if encoded content is not base64" {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
@@ -86,7 +87,7 @@ teardown() {
   [[ $status != 0 ]]
 }
 
-@test "Allows text content" {
+@test "$prefix Allows text content" {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
