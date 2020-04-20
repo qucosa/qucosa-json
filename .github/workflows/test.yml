@@ -16,8 +16,14 @@ jobs:
     - name: Install Bash test tooling
       run: sudo apt-get install bats
 
-    - name: Install jsonschema tooling
-      run: pip install jsonschema
+    - name: Download justify schema validator
+      run: wget "https://github.com/leadpony/justify/releases/download/v2.1.0/justify-cli-2.1.0.tar.gz" -o justify-cli-2.1.0.tar.gz
+
+    - name: Install justify schema validator
+      run: | 
+        tar xzf justify-cli-2.1.0.tar.gz
+        ln -s justify-cli/justify justify
+        ln -s justify-cli/lib lib
 
     - name: Run tests
       run: ./run-tests.sh

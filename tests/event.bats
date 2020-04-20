@@ -1,7 +1,8 @@
 #!/usr/bin/bats
 
-validator="jsonschema"
 schema="$BATS_TEST_DIRNAME/../schemas/event.json"
+validator="justify -s $schema"
+
 
 teardown() {
   rm -f $BATS_TMPDIR/test_*.json
@@ -15,7 +16,7 @@ teardown() {
     "de.qucosa.event.sourceID": "urn:fcrepo3:sdvcmr-app03"
   }' > $tmp
 
-  run $validator -i $tmp $schema
+  run $validator -i $tmp
   [[ $status = 0 ]]
 
 }
@@ -30,7 +31,7 @@ teardown() {
     "de.qucosa.event.expires": 1524580811763
   }' > $tmp
 
-  run $validator -i $tmp $schema
+  run $validator -i $tmp
   [[ $status = 0 ]]
 
 }
@@ -42,7 +43,7 @@ teardown() {
     "de.qucosa.event.version": "1.0"
   }' > $tmp
 
-  run $validator -i $tmp $schema
+  run $validator -i $tmp
   [[ $status = 1 ]]
 
 }
