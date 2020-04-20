@@ -1,7 +1,7 @@
 #!/bin/bash
 
 bats_version=`bats -v`
-if [[ $? = 172 ]]
+if [[ $? = 127 ]]
 then
   echo "Bats is not installed"
   exit 1
@@ -10,7 +10,7 @@ else
 fi
 
 justify > /dev/null 2>&1
-if [[ $? = 172 ]]
+if [[ $? = 127 ]]
 then
   echo "Justify is not installed"
   exit 1
