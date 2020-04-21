@@ -101,3 +101,55 @@ teardown() {
   run $validator -i $tmp
   [[ $status = 0 ]]
 }
+
+@test "$prefix Metric time can not be negative" {
+
+  tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
+  echo '{
+    "de.qucosa.event.version" : "1.0",
+    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
+    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.proc.uri" : "http://foo.bar/xml/2",
+    "de.qucosa.proc.metric.time": -1
+  }' > $tmp
+
+  run $validator -i $tmp
+  [[ $status = 1 ]]
+
+}
+
+@test "$prefix Cycle time can not be negative" {
+
+  tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
+  echo '{
+    "de.qucosa.event.version" : "1.0",
+    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
+    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.proc.uri" : "http://foo.bar/xml/2",
+    "de.qucosa.proc.metric.cycleTime": -1
+  }' > $tmp
+
+  run $validator -i $tmp
+  [[ $status = 1 ]]
+
+}
+
+@test "$prefix Actions must be an array of strings" {
+
+  tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
+  echo '{
+    "de.qucosa.event.version" : "1.0",
+    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
+    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.proc.uri" : "http://foo.bar/xml/2",
+    "de.qucosa.proc.actions" : [
+        "Schema validation successful",
+        1,
+        null
+    ],
+  }' > $tmp
+
+  run $validator -i $tmp
+  [[ $status = 1 ]]
+
+}
