@@ -1,5 +1,4 @@
 #!/bin/bash
-
 bats_version=`bats -v`
 if [[ $? = 127 ]]
 then
@@ -9,7 +8,7 @@ else
   echo "Using $bats_version"
 fi
 
-justify > /dev/null 2>&1
+./justify > /dev/null 2>&1
 if [[ $? = 127 ]]
 then
   echo "Justify is not installed"

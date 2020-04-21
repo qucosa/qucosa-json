@@ -2,7 +2,7 @@
 
 prefix="[Results]"
 schema="$BATS_TEST_DIRNAME/../schemas/result.json"
-validator="justify -s $schema"
+validator="./justify -s $schema"
 
 teardown() {
   rm -f $BATS_TMPDIR/test_*.json
