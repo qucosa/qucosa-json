@@ -2,7 +2,7 @@
 
 prefix="[Events]"
 schema="$BATS_TEST_DIRNAME/../schemas/event.json"
-validator="./justify -s $schema"
+validator="justify -s $schema"
 
 
 teardown() {
