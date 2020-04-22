@@ -4,9 +4,10 @@
   "type": "object",
   "additionalProperties": true,
   "definitions": {
-    "UUID": {
+    "URN": {
       "type": "string",
-      "pattern": "([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}"
+      "format": "uri",
+      "pattern": "^urn:"
     },
     "de.qucosa.event": {
       "required": [
@@ -24,10 +25,32 @@
         },
         "de.qucosa.event.sourceID": {
           "$id": "#/properties/de.qucosa.event.sourceID",
+          "$ref": "#/definitions/URN",
+          "examples": [
+            "urn:fcrepo3:sdvcmr-app03"
+          ]
+        }
+      }
+    },
+    "de.qucosa.config": {
+      "required": [
+        "de.qucosa.config.uri"
+      ],
+      "properties": {
+        "de.qucosa.config.uri": {
+          "$id": "#/properties/de.qucosa.config.uri",
           "type": "string",
           "format": "uri",
           "examples": [
-            "urn:fcrepo3:sdvcmr-app03"
+            "https://foo.bar/configuration/xml/2"
+          ]
+        },
+        "de.qucosa.config.modified": {
+          "$id": "#/properties/de.qucosa.config.modified",
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2018-11-13T20:20:39+00:00"
           ]
         }
       }
@@ -36,6 +59,9 @@
   "allOf": [
     {
       "$ref": "#/definitions/de.qucosa.event"
+    },
+    {
+      "$ref": "#/definitions/de.qucosa.config"
     }
   ]
 }

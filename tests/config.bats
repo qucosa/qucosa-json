@@ -22,10 +22,36 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version": "1.0",
-    "de.qucosa.event.sourceID": "urn:fcrepo3:sdvcmr-app03"
+    "de.qucosa.event.sourceID": "urn:kitodo:publication",
+    "de.qucosa.config.uri": "https://foo.bar/configuration/xml/2"
   }' > $tmp
 
   run $validator -i $tmp
   [[ $status = 0 ]]
 }
 
+@test "$prefix Validates modified date" {
+  tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
+  echo '{
+    "de.qucosa.event.version": "1.0",
+    "de.qucosa.event.sourceID": "urn:kitodo:publication",
+    "de.qucosa.config.uri": "https://foo.bar/configuration/xml/2",
+    "de.qucosa.config.modified": "2018-11-13T20:20:39+00:00"
+  }' > $tmp
+
+  run $validator -i $tmp
+  [[ $status = 0 ]]
+}
+
+@test "$prefix Failes on invalid modified date" {
+  tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
+  echo '{
+    "de.qucosa.event.version": "1.0",
+    "de.qucosa.event.sourceID": "urn:kitodo:publication",
+    "de.qucosa.config.uri": "https://foo.bar/configuration/xml/2",
+    "de.qucosa.config.modified": "13.11.18, 20:00 Uhr"
+  }' > $tmp
+
+  run $validator -i $tmp
+  [[ $status = 1 ]]
+}
