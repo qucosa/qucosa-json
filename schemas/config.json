@@ -9,6 +9,21 @@
       "format": "uri",
       "pattern": "^urn:"
     },
+    "Changes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "before": {},
+          "after": {}
+        },
+        "required": [
+          "before",
+          "after"
+        ]
+      }
+    },
     "de.qucosa.event": {
       "required": [
         "de.qucosa.event.version",
@@ -51,6 +66,43 @@
           "format": "date-time",
           "examples": [
             "2018-11-13T20:20:39+00:00"
+          ]
+        },
+        "de.qucosa.config.changes": {
+          "$id": "#/properties/de.qucosa.config.changes",
+          "$ref": "#/definitions/Changes",
+          "examples": [
+            {
+              "aString": {
+                "before": "this",
+                "after": "that"
+              },
+              "anInteger": {
+                "before": 123457786,
+                "after": 4711
+              },
+              "aNumber": {
+                "before": 3.14,
+                "after": null
+              },
+              "anArray": {
+                "before": [
+                  "a",
+                  "b"
+                ],
+                "after": [
+                  "c"
+                ]
+              },
+              "anObject": {
+                "before": {
+                  "a": "A"
+                },
+                "after": {
+                  "a": "B"
+                }
+              }
+            }
           ]
         }
       }
