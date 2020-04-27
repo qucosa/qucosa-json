@@ -31,11 +31,49 @@
           ]
         }
       }
+    },
+    "de.qucosa.control": {
+      "required": [
+        "de.qucosa.control.targetID"
+      ],
+      "properties": {
+        "de.qucosa.control.targetID": {
+          "$id": "#/properties/de.qucosa.control.targetID",
+          "$ref": "#/definitions/URN",
+          "examples": [
+            "urn:sitemap:register"
+          ]
+        },
+        "de.qucosa.control.headers": {
+          "$id": "#/properties/de.qucosa.control.headers",
+          "type": "object",
+          "minProperties": 1
+        },
+        "de.qucosa.control.message": {
+          "$id": "#/properties/de.qucosa.control.message",
+          "type": "object"
+        }
+      },
+      "if": {
+        "properties": {
+          "de.qucosa.control.message": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "de.qucosa.control.headers"
+        ]
+      }
     }
   },
   "allOf": [
     {
       "$ref": "#/definitions/de.qucosa.event"
+    },
+    {
+      "$ref": "#/definitions/de.qucosa.control"
     }
   ]
 }
