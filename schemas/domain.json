@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.qucosa.de/api/schemas/control.json",
+  "type": "object",
+  "additionalProperties": true,
+  "definitions": {
+    "URN": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^urn:"
+    },
+    "de.qucosa.event": {
+      "required": [
+        "de.qucosa.event.version",
+        "de.qucosa.event.sourceID"
+      ],
+      "properties": {
+        "de.qucosa.event.version": {
+          "$id": "#/properties/de.qucosa.event.version",
+          "type": "string",
+          "pattern": "^[\\d]+(\\.[\\d]+)*$",
+          "examples": [
+            "1.0"
+          ]
+        },
+        "de.qucosa.event.sourceID": {
+          "$id": "#/properties/de.qucosa.event.sourceID",
+          "$ref": "#/definitions/URN",
+          "examples": [
+            "urn:fcrepo3:sdvcmr-app03"
+          ]
+        }
+      }
+    },
+    "de.qucosa.domain": {
+      "required": [
+        "de.qucosa.domain.name",
+        "de.qucosa.domain.type",
+        "de.qucosa.domain.subject"
+      ],
+      "dependencies": {
+        "de.qucosa.domain.schema": [
+          "de.qucosa.domain.data"
+        ]
+      },
+      "properties": {
+        "de.qucosa.domain.name": {
+          "$id": "#/properties/de.qucosa.domain.name",
+          "description": "Name of the domain",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "qucosa",
+            "kitodo-production",
+            "booking"
+          ]
+        },
+        "de.qucosa.domain.type": {
+          "$id": "#/properties/de.qucosa.domain.type",
+          "description": "Type of domain event. May be used for dispatching to processors.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "deposit",
+            "published",
+            "registered"
+          ]
+        },
+        "de.qucosa.domain.subject": {
+          "$id": "#/properties/de.qucosa.domain.subject",
+          "description": "Subject of Event. What is it about?",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "document",
+            "musical_piece",
+            "image"
+          ]
+        },
+        "de.qucosa.domain.subtype": {
+          "$id": "#/properties/de.qucosa.domain.subtype",
+          "description": "Subtype of the domain event. Further specializing what kind of event it is.",
+          "type": "string",
+          "minLength": 1,
+          "examples": [
+            "embargoed",
+            "licenced"
+          ]
+        },
+        "de.qucosa.domain.data": {
+          "$id": "#/properties/de.qucosa.domain.data",
+          "description": "Optional domain specific event data.",
+          "type": "object",
+          "examples": [
+            {
+              "uri": "/1234-abcd-5678/test",
+              "pid": "qucosa:12345",
+              "number": 5
+            }
+          ]
+        },
+        "de.qucosa.domain.schema": {
+          "$id": "#/properties/de.qucosa.domain.schema",
+          "description": "The URI referencing the JSON schema for de.qucosa.domain.data.",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://www.qucosa.de/api/schemas/publication.json"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/definitions/de.qucosa.event"
+    },
+    {
+      "$ref": "#/definitions/de.qucosa.domain"
+    }
+  ]
+}
