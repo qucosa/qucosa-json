@@ -29,7 +29,7 @@ teardown() {
     "de.qucosa.event.version": "1.0",
     "de.qucosa.event.sourceID": "urn:fcrepo3:sdvcmr-app03",
     "de.qucosa.event.transactionID": "f5561cb7-f0f8-43e5-9a5f-9d8f5055b458",
-    "de.qucosa.event.expires": 1524580811763
+    "de.qucosa.event.expires": "2018-11-13T20:20:39+00:00"
   }' > $tmp
 
   run $validator -i $tmp

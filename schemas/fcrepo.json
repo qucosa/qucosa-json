@@ -74,10 +74,10 @@
         },
         "org.fcrepo.jms.timestamp": {
           "$id": "#/properties/org.fcrepo.jms.timestamp",
-          "type": "integer",
-          "minimum": 0,
+          "type": "string",
+          "format": "date-time",
           "examples": [
-            "1524580811763"
+            "2018-11-13T20:20:39+00:00"
           ]
         },
         "org.fcrepo.jms.baseURL": {

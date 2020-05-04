@@ -24,7 +24,7 @@ teardown() {
     "org.fcrepo.jms.user": "bypassAdmin",
     "org.fcrepo.jms.eventID": "2096784f-8915-4f76-9114-10f516553554",
     "org.fcrepo.jms.identifier": "/test1",
-    "org.fcrepo.jms.timestamp": 1524580811763,
+    "org.fcrepo.jms.timestamp": "2018-11-13T20:20:39+00:00",
     "org.fcrepo.jms.baseURL": "http://localhost:8080/rest",
     "org.fcrepo.jms.resourceType": [
       "http://www.w3.org/ns/ldp#Container",
@@ -49,7 +49,7 @@ teardown() {
     "org.fcrepo.jms.user": "bypassAdmin",
     "org.fcrepo.jms.eventID": "2096784f-8915-4f76-9114-10f516553554",
     "org.fcrepo.jms.identifier": "/test1",
-    "org.fcrepo.jms.timestamp": 1524580811763,
+    "org.fcrepo.jms.timestamp": "2018-11-13T20:20:39+00:00",
     "org.fcrepo.jms.baseURL": "http://localhost:8080/rest",
     "org.fcrepo.jms.resourceType": [
       "http://www.w3.org/ns/ldp#Container"

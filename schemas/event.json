@@ -35,9 +35,10 @@
     },
     "de.qucosa.event.expires": {
       "$id": "#/properties/de.qucosa.event.expires",
-      "type": "integer",
+      "type": "string",
+      "format": "date-time",
       "examples": [
-        1524580811763
+        "2018-11-13T20:20:39+00:00"
       ]
     }
   }
