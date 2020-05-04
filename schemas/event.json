@@ -13,6 +13,7 @@
       "$id": "#/properties/de.qucosa.event.version",
       "type": "string",
       "pattern": "^[\\d]+(\\.[\\d]+)*$",
+      "description": "Format version of the message.",
       "examples": [
         "1.0"
       ]
@@ -21,6 +22,7 @@
       "$id": "#/properties/de.qucosa.event.sourceID",
       "type": "string",
       "format": "uri",
+      "description": "The source system of the event.",
       "examples": [
         "urn:fcrepo3:sdvcmr-app03"
       ]
@@ -29,6 +31,7 @@
       "$id": "#/properties/de.qucosa.event.transactionID",
       "type": "string",
       "pattern": "([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}",
+      "description": "A UUID identifying a domain transaction.",
       "examples": [
         "f5561cb7-f0f8-43e5-9a5f-9d8f5055b458"
       ]
@@ -46,6 +49,7 @@
       "$id": "#/properties/de.qucosa.event.expires",
       "type": "string",
       "format": "date-time",
+      "description": "Point in time from which on the event can safely be considered to be expired.",
       "examples": [
         "2018-11-13T20:20:39+00:00"
       ]

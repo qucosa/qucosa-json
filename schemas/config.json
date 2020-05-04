@@ -33,6 +33,7 @@
           "$id": "#/properties/de.qucosa.config.uri",
           "type": "string",
           "format": "uri",
+          "description": "URI of the configuration document.",
           "examples": [
             "https://foo.bar/configuration/xml/2"
           ]
@@ -41,6 +42,7 @@
           "$id": "#/properties/de.qucosa.config.modified",
           "type": "string",
           "format": "date-time",
+          "description": "Timestamp of when the change occured.",
           "examples": [
             "2018-11-13T20:20:39+00:00"
           ]
@@ -48,6 +50,7 @@
         "de.qucosa.config.changes": {
           "$id": "#/properties/de.qucosa.config.changes",
           "$ref": "#/definitions/Changes",
+          "description": "Key-value pairs of individual changed configuration values.",
           "examples": [
             {
               "aString": {

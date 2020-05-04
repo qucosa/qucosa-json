@@ -10,6 +10,7 @@
           "$id": "#/properties/de.qucosa.proc.metric.time",
           "type": "integer",
           "minimum": 0,
+          "description": "Time in milliseconds it took to produce the result.",
           "examples": [
             200
           ]
@@ -18,6 +19,7 @@
           "$id": "#/properties/de.qucosa.proc.metric.cycleTime",
           "type": "integer",
           "minimum": 0,
+          "description": "Accumulated total time in milliseconds of processing for a particular event.",
           "examples": [
             5000
           ]
@@ -28,6 +30,7 @@
           "items": {
             "type": "string"
           },
+          "description": "Accumulated list of processing messages.",
           "examples": [
             [
               "Load XML from http://foo.bar/xml/1",
@@ -40,6 +43,7 @@
           "$id": "#/properties/de.qucosa.proc.uri",
           "type": "string",
           "format": "uri",
+          "description": "URI of the processing result.",
           "examples": [
             "http://foo.bar/xml/2"
           ]
@@ -47,6 +51,7 @@
         "de.qucosa.proc.content": {
           "$id": "#/properties/de.qucosa.proc.content",
           "type": "string",
+          "description": "Either JSON encoded text or Base64 encoded binary.",
           "examples": [
             "TG9yZW0gaXBzdW0=",
             "Just some text"
@@ -56,6 +61,7 @@
           "$id": "#/properties/de.qucosa.proc.contentEncoding",
           "type": "string",
           "default": "text",
+          "description": "Denotes the encoding of the value of a de.qucosa.de.proc.content field.",
           "enum": [
             "base64",
             "text"
@@ -65,6 +71,7 @@
           "$id": "#/properties/de.qucosa.proc.contentType",
           "type": "string",
           "pattern": "^[-\\w.]+/[-\\w.]+(\\+[\\w.]+)?$",
+          "description": "Mime type of the processing result.",
           "examples": [
             "text/plain",
             "application/vnd.qucosa.mets+xml",

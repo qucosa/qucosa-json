@@ -17,6 +17,7 @@
         "de.qucosa.control.targetID": {
           "$id": "#/properties/de.qucosa.control.targetID",
           "$ref": "#/definitions/URN",
+          "description": "Identifier of the process that should process this control message.",
           "examples": [
             "urn:sitemap:register"
           ]
@@ -24,11 +25,13 @@
         "de.qucosa.control.headers": {
           "$id": "#/properties/de.qucosa.control.headers",
           "type": "object",
+          "description": "Object containing simple value event headers describing the message body for the reciepent.",
           "minProperties": 1
         },
         "de.qucosa.control.message": {
           "$id": "#/properties/de.qucosa.control.message",
-          "type": "object"
+          "type": "object",
+          "description": "Value containing the actual message."
         }
       },
       "if": {
