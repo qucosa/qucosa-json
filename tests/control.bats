@@ -1,6 +1,6 @@
 prefix="[Control]"
-schema="$BATS_TEST_DIRNAME/../schemas/control.json"
-validator="justify -s $schema"
+schemadir="$BATS_TEST_DIRNAME/../schemas"
+validator="justify -r $schemadir/event.json -s $schemadir/control.json"
 
 teardown() {
   rm -f $BATS_TMPDIR/test_*.json

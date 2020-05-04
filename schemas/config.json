@@ -24,29 +24,6 @@
         ]
       }
     },
-    "de.qucosa.event": {
-      "required": [
-        "de.qucosa.event.version",
-        "de.qucosa.event.sourceID"
-      ],
-      "properties": {
-        "de.qucosa.event.version": {
-          "$id": "#/properties/de.qucosa.event.version",
-          "type": "string",
-          "pattern": "^[\\d]+(\\.[\\d]+)*$",
-          "examples": [
-            "1.0"
-          ]
-        },
-        "de.qucosa.event.sourceID": {
-          "$id": "#/properties/de.qucosa.event.sourceID",
-          "$ref": "#/definitions/URN",
-          "examples": [
-            "urn:fcrepo3:sdvcmr-app03"
-          ]
-        }
-      }
-    },
     "de.qucosa.config": {
       "required": [
         "de.qucosa.config.uri"
@@ -110,7 +87,7 @@
   },
   "allOf": [
     {
-      "$ref": "#/definitions/de.qucosa.event"
+      "$ref": "event.json"
     },
     {
       "$ref": "#/definitions/de.qucosa.config"

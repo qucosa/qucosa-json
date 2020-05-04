@@ -1,8 +1,9 @@
 #!/usr/bin/bats
 
 prefix="[Results]"
-schema="$BATS_TEST_DIRNAME/../schemas/result.json"
-validator="justify -s $schema"
+schemadir="$BATS_TEST_DIRNAME/../schemas"
+schema="result.json"
+validator="justify -r $schemadir/event.json -s $schemadir/$schema"
 
 teardown() {
   rm -f $BATS_TMPDIR/test_*.json

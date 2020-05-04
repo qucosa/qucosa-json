@@ -8,30 +8,6 @@
       "type": "string",
       "pattern": "([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}){1}"
     },
-    "de.qucosa.event": {
-      "required": [
-        "de.qucosa.event.version",
-        "de.qucosa.event.sourceID"
-      ],
-      "properties": {
-        "de.qucosa.event.version": {
-          "$id": "#/properties/de.qucosa.event.version",
-          "type": "string",
-          "pattern": "^[\\d]+(\\.[\\d]+)*$",
-          "examples": [
-            "1.0"
-          ]
-        },
-        "de.qucosa.event.sourceID": {
-          "$id": "#/properties/de.qucosa.event.sourceID",
-          "type": "string",
-          "format": "uri",
-          "examples": [
-            "urn:fcrepo3:sdvcmr-app03"
-          ]
-        }
-      }
-    },
     "org.fcrepo": {
       "required": [
         "org.fcrepo.jms.user",
@@ -122,7 +98,7 @@
   },
   "allOf": [
     {
-      "$ref": "#/definitions/de.qucosa.event"
+      "$ref": "event.json"
     },
     {
       "$ref": "#/definitions/org.fcrepo"

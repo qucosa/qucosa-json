@@ -1,8 +1,8 @@
 #!/usr/bin/bats
 
 prefix="[Fcrepo]"
-schema="$BATS_TEST_DIRNAME/../schemas/fcrepo.json"
-validator="justify -s $schema"
+schemadir="$BATS_TEST_DIRNAME/../schemas"
+validator="justify -r $schemadir/event.json -s $schemadir/fcrepo.json"
 
 teardown() {
   rm -f $BATS_TMPDIR/test_*.json
