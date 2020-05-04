@@ -1,5 +1,3 @@
-#!/usr/bin/bats
-
 prefix="[Results]"
 schemadir="$BATS_TEST_DIRNAME/../schemas"
 schema="result.json"

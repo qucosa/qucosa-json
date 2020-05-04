@@ -1,5 +1,3 @@
-#!/usr/bin/bats
-
 prefix="[Fcrepo]"
 schemadir="$BATS_TEST_DIRNAME/../schemas"
 validator="justify -r $schemadir/event.json -s $schemadir/fcrepo.json"

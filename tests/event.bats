@@ -1,5 +1,3 @@
-#!/usr/bin/bats
-
 prefix="[Events]"
 schema="$BATS_TEST_DIRNAME/../schemas/event.json"
 validator="justify -s $schema"
