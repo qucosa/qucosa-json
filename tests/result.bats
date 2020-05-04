@@ -21,8 +21,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.uri" : "http://foo.bar/xml/2"
   }' > $tmp
 
@@ -34,8 +33,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.content" : "TG9yZW0gaXBzdW0=",
     "de.qucosa.proc.contentEncoding" : "base64",
     "de.qucosa.proc.contentType" : "application/vnd.qucosa.mets+xml"
@@ -49,8 +47,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.content" : "TG9yZW0gaXBzdW0=",
     "de.qucosa.proc.contentType" : "application/vnd.qucosa.mets+xml"
   }' > $tmp
@@ -63,8 +60,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.content" : "TG9yZW0gaXBzdW0=",
     "de.qucosa.proc.contentEncoding" : "base64",
   }' > $tmp
@@ -77,8 +73,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.content" : "1235-abc",
     "de.qucosa.proc.contentEncoding" : "base64",
     "de.qucosa.proc.contentType" : "application/vnd.qucosa.mets+xml"
@@ -92,8 +87,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.content" : "This is text content",
     "de.qucosa.proc.contentEncoding" : "text",
     "de.qucosa.proc.contentType" : "text/plain"
@@ -108,8 +102,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.uri" : "http://foo.bar/xml/2",
     "de.qucosa.proc.metric.time": -1
   }' > $tmp
@@ -124,8 +117,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.uri" : "http://foo.bar/xml/2",
     "de.qucosa.proc.metric.cycleTime": -1
   }' > $tmp
@@ -140,8 +132,7 @@ teardown() {
   tmp="$BATS_TMPDIR/$BATS_TEST_NAME.json"
   echo '{
     "de.qucosa.event.version" : "1.0",
-    "de.qucosa.event.sourceID" : "urn:fcrepo3:sdvcmr-app03",
-    "de.qucosa.proc.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
+    "de.qucosa.event.sourceID" : "urn:camel:disseminate-mets:sdvcmr-camel02",
     "de.qucosa.proc.uri" : "http://foo.bar/xml/2",
     "de.qucosa.proc.actions" : [
         "Schema validation successful",

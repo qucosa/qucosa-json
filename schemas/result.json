@@ -5,18 +5,7 @@
   "additionalProperties": true,
   "definitions": {
     "de.qucosa.proc": {
-      "required": [
-        "de.qucosa.proc.sourceID"
-      ],
       "properties": {
-        "de.qucosa.proc.sourceID": {
-          "$id": "#/properties/de.qucosa.proc.sourceID",
-          "type": "string",
-          "format": "uri",
-          "examples": [
-            "urn:camel:disseminate-mets:sdvcmr-camel02"
-          ]
-        },
         "de.qucosa.proc.metric.time": {
           "$id": "#/properties/de.qucosa.proc.metric.time",
           "type": "integer",
