@@ -36,8 +36,8 @@
         "f5561cb7-f0f8-43e5-9a5f-9d8f5055b458"
       ]
     },
-    "de.qucosa.event.occured": {
-      "$id": "#/properties/de.qucosa.event.occured",
+    "de.qucosa.event.occurred": {
+      "$id": "#/properties/de.qucosa.event.occurred",
       "type": "string",
       "format": "date-time",
       "description": "Point in time when the event was originally generated.",
